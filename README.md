@@ -8,7 +8,7 @@ Desconsideraremos o uso de Interfaces, Protocols, Type hints e encapsulamentos q
 
 ### 1. Observer
 
-<img src="C:\Users\GuilhermeSilvadosSan\Documents\github\Padroes-de-projetos\imgs\observer.svg">
+<img src="https://raw.githubusercontent.com/gusantos1/Descomplicando_Padroes_de_Projetos/a90efd626b99c87aea4e561a9498f31825a21570/imgs/observer.svg">
 
 O objetivo desse padrão é notificar um evento aos objetos que estão aguardando pela notificação. De modo prático, teremos um objeto que armazenará objetos de outra classe e através de um método, notificará os objetos que foram armazenados.
 
@@ -67,7 +67,7 @@ Desconto exclusivo de 20% para Marcela
 
 #### ainda_não_entendi()
 
-<img src="C:\Users\GuilhermeSilvadosSan\Documents\github\Padroes-de-projetos\imgs\observer-final.svg">
+<img src="https://raw.githubusercontent.com/gusantos1/Descomplicando_Padroes_de_Projetos/a90efd626b99c87aea4e561a9498f31825a21570/imgs/observer-final.svg">
 
 #### Observer no mundo real
 
