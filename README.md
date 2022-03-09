@@ -60,6 +60,7 @@ obs.notificar('Desconto exclusivo de 20%')
 
 ```shell
 Output:
+
 Desconto exclusivo de 20% para Caio
 Desconto exclusivo de 20% para Fernanda
 Desconto exclusivo de 20% para Marcela
@@ -77,3 +78,83 @@ Desconto exclusivo de 20% para Marcela
 
 
 Leitura técnica completa: https://refactoring.guru/pt-br/design-patterns/observer
+
+### 2. Singleton
+
+O objetivo desse padrão é manter uma única instância por classe. De modo prático, em python, uma maneira simples de implementar esse padrão é modularizar a pasta com o objeto já criado; isso preservará a existência de uma única instância.
+
+
+
+
+
+```bash
+────Singleton
+    │   main.py
+    └───source
+            model.py
+            pattern.py
+            __init__.py
+```
+
+1. Árvore de diretório da estrutura da implementação.
+
+```python
+class Empresa:
+    def __init__(self, nome):
+        self.nome = nome
+        self.filiais = []
+    
+    def adicionar_filial(self, local):
+        self.filiais.append(local)
+    
+    def mostrar_filiais(self):
+        print(self.filiais)
+```
+
+2. Nossa classe Empresa em model.py com a finalidade de ter apenas uma única instância pra cada Empresa, com a possibilidade de adicionar e mostrar suas filiais.
+
+```python
+from source.model import Empresa
+
+
+BRIDGE = Empresa('Bridge')
+```
+
+3. Em pattern.py temos a criação do nosso objeto BRIDGE como uma constante.
+
+```python
+from source.pattern import BRIDGE
+```
+
+4. No __ init __.py a ideia é fazer com que o objeto `BRIDGE` faça parte da importação toda vez que o `source` for chamado como módulo, da mesma forma quando usamos para importar funcionalidades em bibliotecas, como: `from math import radians`, 
+
+```python
+from source import BRIDGE
+
+
+bridge_one = BRIDGE
+bridge_two = BRIDGE
+
+bridge_one.adicionar_filial('SP')
+bridge_two.adicionar_filial('BA')
+```
+
+5. Criamos duas variáveis atribuindo o mesmo objeto BRIDGE e em cada variável chamados o método adicionar_filial.
+
+```bash
+BRIDGE.mostrar_filiais()
+print(bridge_one == bridge_two == BRIDGE)
+
+print(id(bridge_one))
+print(id(bridge_two))
+print(id(BRIDGE))
+
+Output:
+    ['SP', 'BA']
+	True
+	2296464390656
+    2296464390656
+    2296464390656
+```
+
+6. Vemos que em ambas variáveis o objeto BRIDGE é chamado e preservado como única instância e o mesmo id.
